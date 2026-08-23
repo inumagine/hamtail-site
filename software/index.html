@@ -1,40 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ソフトウェア｜HAM TAIL</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="../assets/js/site.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ソフトウェア | HAM TAIL</title>
+  <meta name="description" content="HAM TAIL / HaM Soft が公開しているWindows向けソフトウェアの一覧です。">
+  <style>
+    :root {
+      --primary:#2563eb;
+      --primary-hover:#1d4ed8;
+      --bg:#0f172a;
+      --card:#1e293b;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;
+      color:var(--text);
+      background:radial-gradient(circle at top,rgba(37,99,235,.14),transparent 34%),linear-gradient(180deg,#0b1222 0%,var(--bg) 100%);
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
+    .brand{font-size:1.25rem;font-weight:800;letter-spacing:.08em;background:linear-gradient(to right,#93c5fd,#c4b5fd);-webkit-background-clip:text;color:transparent}
+    nav{display:flex;gap:12px;flex-wrap:wrap}
+    .nav-link{padding:10px 16px;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#dbeafe}
+    .hero{padding:62px 0 48px}
+    .eyebrow{display:inline-block;margin-bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(37,99,235,.15);border:1px solid rgba(96,165,250,.25);color:#bfdbfe;font-size:.86rem}
+    h1{font-size:clamp(2.3rem,5vw,4rem);line-height:1.12;letter-spacing:-.03em;margin-bottom:16px}
+    .lead{max-width:720px;color:var(--muted);font-size:1.06rem}
+    .section-title{font-size:1.8rem;margin:8px 0 24px}
+    .software-card{display:grid;grid-template-columns:160px 1fr 320px;gap:26px;align-items:center;background:rgba(30,41,59,.9);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:26px;box-shadow:0 30px 50px -30px rgba(0,0,0,.8);margin-bottom:70px}
+    .app-icon{width:150px;height:150px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+    .app-icon img{width:100%;height:100%;object-fit:cover}
+    .software-card h2{font-size:2rem;margin-bottom:4px}
+    .subtitle{color:#bfdbfe;font-size:.9rem;margin-bottom:14px}
+    .description{color:var(--muted);margin-bottom:18px}
+    .tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+    .tag{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#dbeafe;font-size:.85rem}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:700;background:var(--primary);color:white;box-shadow:0 10px 20px rgba(37,99,235,.22)}
+    .btn:hover{background:var(--primary-hover)}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.14);box-shadow:none}
+    .preview{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#0b1222}
+    .preview img{width:100%}
+    .coming{padding:28px;border:1px dashed rgba(255,255,255,.15);border-radius:18px;color:var(--muted);margin-bottom:70px}
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:34px 0 46px;text-align:center;color:var(--muted);font-size:.9rem}
+    @media(max-width:900px){.software-card{grid-template-columns:120px 1fr}.app-icon{width:110px;height:110px}.preview{grid-column:1/-1}.preview img{max-height:420px;object-fit:contain}}
+    @media(max-width:620px){header{align-items:flex-start;flex-direction:column}.hero{padding-top:34px}.software-card{grid-template-columns:1fr}.app-icon{width:96px;height:96px}.preview{grid-column:auto}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="../index.html">HAM TAIL</a>
-      <nav class="site-nav open">
-        <a href="../index.html">ホーム</a>
-        <a href="../apps/index.html">アプリ</a>
+  <div class="container">
+    <header>
+      <a class="brand" href="/">HAM TAIL</a>
+      <nav>
+        <a class="nav-link" href="/">ホーム</a>
+        <a class="nav-link" href="/apps/">アプリ</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <div class="page-head">
-    <div class="container">
+    <section class="hero">
+      <span class="eyebrow">HaM Soft / Windows Software</span>
       <h1>ソフトウェア</h1>
-    </div>
+      <p class="lead">HAM TAIL / HaM Soft が公開しているWindows向けソフトウェアです。日常のPC作業を少し便利にする、シンプルなツールを公開しています。</p>
+    </section>
+
+    <main>
+      <h2 class="section-title">公開中のソフト</h2>
+
+      <article class="software-card">
+        <div class="app-icon">
+          <img src="../assets/images/software/copype/icon-copype.png" alt="COPYぺ アイコン">
+        </div>
+
+        <div>
+          <h2>COPYぺ</h2>
+          <div class="subtitle">COPY ・ COMMAND ・ EXPLORER</div>
+          <p class="description">よく使う文章・コマンド・フォルダを登録して、Windows作業をすばやく行うための作業支援ツールです。Explorerでは、同じフォルダを重複して開きにくくし、ウィンドウが増えすぎるのを防ぎます。</p>
+          <div class="tags">
+            <span class="tag">Windows 10 / 11</span>
+            <span class="tag">.NET 8 自己完結</span>
+            <span class="tag">フリーソフト</span>
+            <span class="tag">v1.0.0</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="./copype/">詳細・ダウンロード</a>
+            <a class="btn secondary" href="./copype/releases/copype-setup-v1.0.0.exe">インストーラー版</a>
+          </div>
+        </div>
+
+        <a class="preview" href="./copype/" aria-label="COPYぺ詳細ページを開く">
+          <img src="../assets/images/software/copype/screenshot-copy.png" alt="COPYぺの画面">
+        </a>
+      </article>
+
+      <div class="coming">今後公開するWindowsソフトも、この一覧に追加していきます。</div>
+    </main>
+
+    <footer>© 2026 HaM Soft / HAM TAIL</footer>
   </div>
-
-  <main class="container">
-    <div class="card">
-      <h2>COPYぺ</h2>
-      <p>よく使う文章・コマンド・フォルダを登録して、Windows作業をすばやく行うための作業支援ツールです。</p>
-      <p>定型文コピー、コマンド実行、よく使うフォルダの呼び出しに対応しています。同じフォルダを重複して開きにくくし、エクスプローラーが増えすぎるのを防ぐ機能も備えています。</p>
-      <p><a href="./copype/">COPYぺの詳細・ダウンロード</a></p>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="copyright">© <span data-year>2026</span> HAM TAIL</div>
-  </footer>
 </body>
 </html>
