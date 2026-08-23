@@ -1,107 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COPYぺ | HAM TAIL</title>
-  <meta name="description" content="COPYぺは、定型文・コマンド・フォルダを登録して素早く呼び出せるWindows用作業支援ツールです。">
-  <link rel="stylesheet" href="../style.css">
+  <meta name="description" content="COPYぺは、よく使う文章・コマンド・フォルダを登録し、日常のWindows作業を素早く行うための作業支援ツールです。">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", sans-serif;
+      background: radial-gradient(circle at top, rgba(37,99,235,.14), transparent 32%), linear-gradient(180deg,#0b1222 0%,var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .logo-wrap { display: flex; align-items: center; gap: 14px; }
+    .logo-icon { width: 56px; height: 56px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); flex-shrink: 0; }
+    .logo { font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right,#93c5fd,#c4b5fd); -webkit-background-clip:text; color:transparent; }
+    .sublogo { font-size: .85rem; color: var(--text-muted); }
+    .nav-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; background:var(--primary); color:white; padding:12px 28px; border-radius:10px; font-weight:700; border:1px solid transparent; box-shadow:0 10px 18px rgba(37,99,235,.28); }
+    .btn:hover { background:var(--primary-hover); }
+    .btn.sub { background:transparent; border-color:rgba(255,255,255,.12); box-shadow:none; }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:36px; align-items:center; padding:44px 0 56px; }
+    .eyebrow { display:inline-block; font-size:.85rem; color:#bfdbfe; padding:8px 12px; border-radius:999px; background:rgba(37,99,235,.15); border:1px solid rgba(96,165,250,.25); margin-bottom:16px; }
+    .hero h1 { font-size:clamp(2.2rem,5vw,4rem); margin-bottom:18px; font-weight:900; line-height:1.12; letter-spacing:-.03em; }
+    .hero p { font-size:1.08rem; color:var(--text-muted); max-width:720px; margin-bottom:24px; }
+    .hero-points { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+    .hero-point { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:10px 14px; border-radius:999px; color:#dbeafe; font-size:.92rem; }
+    .hero-cta { display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+    .version-note { color:var(--text-muted); font-size:.92rem; }
+    .app-card { background:linear-gradient(180deg,rgba(30,41,59,.96),rgba(15,23,42,.96)); border:1px solid rgba(255,255,255,.10); border-radius:22px; padding:18px; box-shadow:0 30px 50px -20px rgba(0,0,0,.65); }
+    .app-card img { width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.08); }
+    section { margin-bottom:88px; }
+    .section-title { font-size:2rem; margin-bottom:10px; }
+    .section-lead { color:var(--text-muted); margin-bottom:28px; max-width:760px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+    .card, .info-box, .shot { background:rgba(30,41,59,.88); border:1px solid rgba(255,255,255,.08); border-radius:18px; box-shadow:0 18px 30px -20px rgba(0,0,0,.6); }
+    .card { padding:28px; }
+    .card h3 { font-size:1.15rem; margin-bottom:12px; color:#e2e8f0; }
+    .card p, .shot p, .small { color:var(--text-muted); }
+    .problem-box { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .problem, .solution { padding:24px; border-radius:18px; border:1px solid rgba(255,255,255,.08); }
+    .problem { background:rgba(239,68,68,.08); }
+    .solution { background:rgba(34,197,94,.08); }
+    .problem h3, .solution h3 { margin-bottom:8px; }
+    .problem p, .solution p { color:var(--text-muted); }
+    .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .shot { padding:14px; }
+    .shot img { border-radius:12px; border:1px solid rgba(255,255,255,.08); margin-bottom:12px; }
+    .shot h3 { font-size:1rem; margin-bottom:6px; }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .info-box { padding:24px; }
+    .info-box h3 { margin-bottom:14px; }
+    .info-list { display:grid; gap:10px; }
+    .info-row { display:grid; grid-template-columns:140px 1fr; gap:14px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.06); }
+    .info-row:last-child { border-bottom:none; padding-bottom:0; }
+    .label { color:#cbd5e1; font-weight:700; }
+    .value { color:var(--text-muted); }
+    .brand-box { display:flex; align-items:center; gap:22px; }
+    .brand-box img { width:120px; height:120px; object-fit:cover; border-radius:28px; border:1px solid rgba(255,255,255,.08); }
+    footer { text-align:center; padding:36px 0 50px; color:var(--text-muted); font-size:.9rem; border-top:1px solid rgba(255,255,255,.08); }
+    @media (max-width:920px) { .hero,.problem-box,.info-grid { grid-template-columns:1fr; } .gallery { grid-template-columns:1fr; } }
+    @media (max-width:640px) { header { flex-direction:column; align-items:flex-start; } .hero { padding-top:24px; } .info-row { grid-template-columns:1fr; gap:4px; } .brand-box { flex-direction:column; align-items:flex-start; } }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="/">HAM TAIL</a>
-      <nav class="nav">
-        <a href="/">ホーム</a>
-        <a href="../">ソフトウェア</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <header>
+      <div class="logo-wrap">
+        <div class="logo-icon"><img src="./images/icon-copype.png" alt="COPYぺ アイコン"></div>
+        <div><div class="logo">COPYぺ</div><div class="sublogo">COPY ・ COMMAND ・ EXPLORER</div></div>
+      </div>
+      <div class="nav-actions">
+        <a href="../" class="btn sub">ソフトウェア一覧</a>
+        <a href="./releases/copype-v1.0.0.zip" class="btn">ダウンロード</a>
+      </div>
+    </header>
 
-  <section class="hero">
-    <div class="main-inner">
-      <h1>COPYぺ</h1>
-      <p>定型文・コマンド・フォルダを、必要なときにすぐ呼び出す。</p>
-    </div>
-  </section>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Windows用 作業支援ツール</div>
+        <h1>よく使うものを、<br>すぐ呼び出す。</h1>
+        <p>COPYぺは、よく使う文章・コマンド・フォルダを登録し、日常のWindows作業を素早く行うためのシンプルな作業支援ツールです。</p>
+        <div class="hero-points">
+          <div class="hero-point">📋 定型文をすぐコピー</div>
+          <div class="hero-point">⌨ コマンドを一覧から実行</div>
+          <div class="hero-point">📂 フォルダを整理して開く</div>
+        </div>
+        <div class="hero-cta">
+          <a href="./releases/copype-v1.0.0.zip" class="btn">今すぐダウンロード</a>
+          <span class="version-note">最新バージョン：v1.0.0</span>
+        </div>
+      </div>
+      <div class="app-card"><img src="./images/screenshot-copy.png" alt="COPYぺ コピー画面"></div>
+    </section>
 
-  <main class="main-inner">
-    <section class="card">
-      <h2>Windows用 作業支援ツール</h2>
-      <p>
-        COPYぺは、よく使う文章、コマンド、フォルダを登録して、
-        日常のPC作業を素早く行うためのシンプルなWindowsソフトです。
-      </p>
-
-      <div class="button-row">
-        <a class="button" href="./releases/copype-v1.0.0.zip">v1.0.0をダウンロード</a>
+    <section>
+      <h2 class="section-title">COPYぺでできること</h2>
+      <p class="section-lead">よく使う内容を手元にまとめて、毎回探したり打ち直したりする手間を減らします。</p>
+      <div class="features">
+        <div class="card"><h3>📋 定型文をすぐコピー</h3><p>住所、URL、定型メッセージなど、よく使う文章を登録しておき、COPYボタンからWindowsのクリップボードへすぐコピーできます。</p></div>
+        <div class="card"><h3>⌨ コマンドを登録して実行</h3><p>ipconfig、whoami、dir など、よく使うコマンドを一覧からすぐ実行できます。毎回コマンドを打ち直す手間を減らせます。</p></div>
+        <div class="card"><h3>📂 同じフォルダを重複オープンしない</h3><p>既に開いているフォルダを何度も増やさないため、エクスプローラーが乱立せず、どのウィンドウが目的のものか分からなくなるのを防ぎます。</p></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>主な機能</h2>
-      <div class="card">
-        <ul class="clean">
-          <li>よく使う文章を登録し、COPYボタンでクリップボードへコピー</li>
-          <li>よく使うコマンドを登録して実行</li>
-          <li>よく使うフォルダを登録してすぐ開く</li>
-          <li>登録内容を保存して次回起動時にも利用</li>
-        </ul>
+    <section>
+      <h2 class="section-title">Explorer機能の強み</h2>
+      <p class="section-lead">ただフォルダを開くだけではなく、エクスプローラーが増えすぎる問題も抑えます。</p>
+      <div class="problem-box">
+        <div class="problem"><h3>よくある困りごと</h3><p>同じフォルダを何度も開いてしまい、エクスプローラーだらけになって、どれが今使いたいウィンドウなのか分からなくなることがあります。</p></div>
+        <div class="solution"><h3>COPYぺの解決</h3><p>COPYぺは同じフォルダを重複して増やしにくくし、既に開いている目的のフォルダを見失いにくくします。作業中のウィンドウ整理にも役立ちます。</p></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>画面イメージ</h2>
-      <div class="screenshot-placeholder">
-        images/screenshot-main.png を配置すると、ここを画像表示に差し替えられます。
+    <section>
+      <h2 class="section-title">画面イメージ</h2>
+      <p class="section-lead">COPYぺの主な3機能をそのまま確認できます。</p>
+      <div class="gallery">
+        <div class="shot"><img src="./images/screenshot-copy.png" alt="COPYぺ コピー画面"><h3>コピー画面</h3><p>登録した定型文を一覧から選び、ワンクリックでコピーできます。</p></div>
+        <div class="shot"><img src="./images/screenshot-cmd.png" alt="COPYぺ CMD画面"><h3>CMD画面</h3><p>よく使うコマンドを登録して、必要なときにすぐ実行できます。</p></div>
+        <div class="shot"><img src="./images/screenshot-explorer.png" alt="COPYぺ Explorer画面"><h3>Explorer OPEN画面</h3><p>よく使うフォルダを登録し、目的の場所へ素早くアクセスできます。</p></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>ソフトウェア情報</h2>
-      <table class="info-table">
-        <tr><th>ソフト名</th><td>COPYぺ</td></tr>
-        <tr><th>バージョン</th><td>1.0.0</td></tr>
-        <tr><th>対応OS</th><td>Windows 10 / 11</td></tr>
-        <tr><th>作者</th><td>HaM Soft</td></tr>
-        <tr><th>配布形態</th><td>フリーソフト</td></tr>
-      </table>
-    </section>
-
-    <section class="section">
-      <h2>インストール</h2>
-      <div class="card">
-        <p>配布ZIPを展開し、実行ファイルを起動してください。</p>
-        <p class="meta">
-          ※実際の公開方法に合わせて、ここは正式版作成時に書き換えてください。
-        </p>
+    <section>
+      <h2 class="section-title">配布情報</h2>
+      <div class="info-grid">
+        <div class="info-box"><h3>ソフトウェア情報</h3><div class="info-list">
+          <div class="info-row"><div class="label">ソフト名</div><div class="value">COPYぺ</div></div>
+          <div class="info-row"><div class="label">バージョン</div><div class="value">v1.0.0</div></div>
+          <div class="info-row"><div class="label">対応OS</div><div class="value">Windows 10 / 11</div></div>
+          <div class="info-row"><div class="label">作者</div><div class="value">HaM Soft</div></div>
+          <div class="info-row"><div class="label">配布形態</div><div class="value">フリーソフト</div></div>
+        </div></div>
+        <div class="info-box"><h3>インストール・更新</h3><div class="info-list">
+          <div class="info-row"><div class="label">インストール</div><div class="value">ZIPファイルを展開し、実行ファイルを起動してください。</div></div>
+          <div class="info-row"><div class="label">更新履歴</div><div class="value">v1.0.0 — 初回正式公開</div></div>
+          <div class="info-row"><div class="label">ダウンロード</div><div class="value"><a href="./releases/copype-v1.0.0.zip">copype-v1.0.0.zip</a></div></div>
+          <div class="info-row"><div class="label">お問い合わせ</div><div class="value"><a href="/contact/">お問い合わせページ</a></div></div>
+        </div></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>更新履歴</h2>
-      <div class="card">
-        <p><strong>v1.0.0</strong> — 初回正式公開</p>
-      </div>
+    <section>
+      <h2 class="section-title">HaM Soft</h2>
+      <div class="info-box"><div class="brand-box">
+        <img src="./images/logo-hamsoft.png" alt="HaM Soft ロゴ">
+        <div><h3>HaM Soft / HAM TAIL</h3><p class="small">COPYぺは、HaM Softが公開しているWindows向け作業支援ソフトです。シンプルで使いやすいツールを目指して開発しています。</p></div>
+      </div></div>
     </section>
 
-    <section class="section">
-      <h2>ご利用について</h2>
-      <div class="notice">
-        本ソフトウェアの利用条件・免責事項は正式公開時に記載してください。
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>お問い合わせ</h2>
-      <div class="card">
-        <p><a href="/contact/">HAM TAIL お問い合わせページ</a></p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">© 2026 HAM TAIL</div>
-  </footer>
+    <footer><p>&copy; 2026 HaM Soft / HAM TAIL</p></footer>
+  </div>
 </body>
 </html>
