@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneSetTimer | 1回押すだけで3段階通知 | HaM Soft</title>
+  <meta name="description" content="OneSetTimerは、1回の操作で最大3回の通知を自動で行えるAndroidタイマーアプリです。施術・接客・サロン・トレーニングなど、途中でスマホを触りたくない時間管理に。">
+  <style>
+    :root{--bg:#0b1222;--bg2:#0f172a;--card:#111c32;--primary:#2563eb;--text:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,.09);--green:#16a34a}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;background:radial-gradient(circle at 25% 0,rgba(56,189,248,.16),transparent 28%),linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);color:var(--text);line-height:1.75;min-height:100vh}
+    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:auto;padding:0 22px}
+    header{border-bottom:1px solid var(--line);background:rgba(11,18,34,.8);backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#bfdbfe,#7dd3fc,#c4b5fd);-webkit-background-clip:text;color:transparent}.links{display:flex;gap:10px;flex-wrap:wrap}.links a{padding:9px 14px;color:#cbd5e1}
+    .hero{padding:68px 0 46px;display:grid;grid-template-columns:1fr 220px;gap:38px;align-items:center}.eyebrow{display:inline-block;margin-bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(37,99,235,.15);border:1px solid rgba(96,165,250,.25);color:#bfdbfe;font-size:.86rem}.hero h1{font-size:clamp(2.4rem,5vw,4.6rem);line-height:1.08;margin-bottom:14px}.hero h1 span{color:#60a5fa}.lead{color:var(--muted);font-size:1.08rem;max-width:760px}.icon{width:220px;border-radius:36px;border:1px solid var(--line)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-block;padding:13px 21px;border-radius:11px;font-weight:800;background:linear-gradient(135deg,var(--primary),#0ea5e9);color:#fff}.btn.play{background:linear-gradient(135deg,#16a34a,#22c55e)}
+    section{padding:36px 0}.section-head{text-align:center;margin-bottom:22px}.section-head h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:8px}.section-head p{color:var(--muted)}
+    .feature{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature div{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(17,28,50,.78)}.feature strong{display:block;font-size:1.15rem;margin-bottom:6px}.feature p{color:var(--muted)}
+    .example{margin-top:22px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}.step{min-width:180px;text-align:center;padding:18px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line)}.step strong{display:block;font-size:1.35rem;color:#93c5fd}.arrow{font-size:1.8rem;color:#64748b}
+    .comic{margin:26px auto 0;max-width:940px;padding:10px;border-radius:20px;background:#fff;border:1px solid rgba(255,255,255,.18);box-shadow:0 28px 70px -36px #000}.comic img{display:block;width:100%;height:auto;border-radius:12px}
+    .caption{text-align:center;color:var(--muted);margin-top:12px}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.detail-card{padding:24px;border-radius:20px;background:rgba(17,28,50,.8);border:1px solid var(--line)}.detail-card h3{font-size:1.35rem;margin-bottom:12px}.detail-card ul{padding-left:1.3em;color:#dbeafe}.detail-card li{margin:6px 0}
+    .cta{text-align:center;padding:44px 24px;border-radius:24px;background:linear-gradient(135deg,rgba(37,99,235,.16),rgba(34,197,94,.09));border:1px solid rgba(96,165,250,.22);margin:30px 0 68px}.cta h2{font-size:2rem;margin-bottom:8px}.cta p{color:var(--muted);margin-bottom:20px}
+    footer{border-top:1px solid var(--line);padding:34px 0 46px;text-align:center;color:var(--muted);font-size:.9rem}
+    @media(max-width:760px){.hero{grid-template-columns:1fr}.icon{width:150px}.feature,.detail-grid{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.example{flex-direction:column}.step{width:88%}.nav{align-items:flex-start;flex-direction:column;padding:15px 0}}
+  </style>
+</head>
+<body>
+  <header><div class="container nav"><a class="brand" href="/">HAM TAIL / HaM Soft</a><nav class="links"><a href="/apps/">アプリ</a><a href="/software/">ソフトウェア</a><a href="/articles/">記事</a></nav></div></header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Android / OneSetTimer</span>
+        <h1>1回押すだけで、<br><span>最大3回お知らせ。</span></h1>
+        <p class="lead">OneSetTimerは、開始時にスタートを1回押すだけで、あらかじめ設定した最大3回の通知を自動で行うタイマーアプリです。途中でスマホを何度も確認せず、作業や接客に集中できます。</p>
+        <div class="actions"><a class="btn play" href="https://play.google.com/store/apps/details?id=jp.hamsoft.onesettimer" target="_blank" rel="noopener">Google Playで見る</a><a class="btn" href="#howto">使い方を見る</a></div>
+      </div>
+      <img class="icon" src="/assets/images/apps/onesettimer/icon-onesettimer.png" alt="OneSetTimerアプリアイコン">
+    </section>
+
+    <section>
+      <div class="section-head"><h2>複数の時間通知を、1回のスタートで</h2><p>普通のスマホで複数のアラームを個別に設定する手間を減らします。</p></div>
+      <div class="feature">
+        <div><strong>1回の操作で最大3回通知</strong><p>開始時にスタートするだけ。途中で次のタイマーを操作する必要がありません。</p></div>
+        <div><strong>4つのプリセットを登録</strong><p>よく使う時間パターンを保存して、必要なときにすぐ呼び出せます。</p></div>
+        <div><strong>端末内の音楽も通知音に</strong><p>通知のタイミングを、分かりやすい好きな音で知らせることができます。</p></div>
+      </div>
+      <div class="example">
+        <div class="step"><strong>45分後</strong>施術終了</div><div class="arrow">→</div>
+        <div class="step"><strong>55分後</strong>シャワー終了</div><div class="arrow">→</div>
+        <div class="step"><strong>60分後</strong>退室時間</div>
+      </div>
+    </section>
+
+    <section id="howto">
+      <div class="section-head"><h2>漫画でわかる OneSetTimer</h2><p>「15分前・5分前・終了」を毎回設定する面倒を、どう減らせるかを紹介します。</p></div>
+      <div class="comic"><img src="/assets/images/apps/onesettimer/onesettimer-howto-comic.png" alt="OneSetTimer 1回押すだけで3段階通知する使い方漫画"></div>
+      <p class="caption">1回押すだけで3段階通知。途中でスマホを触らず時間管理。</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>もう少し詳しく見る</h2><p>施術・接客・サロンなど、手を止めにくい場面での使い方をまとめています。</p></div>
+      <div class="comic"><img src="/assets/images/apps/onesettimer/onesettimer-howto-detail.png" alt="OneSetTimerの詳しい使い方と活用例"></div>
+    </section>
+
+    <section class="detail-grid">
+      <div class="detail-card"><h3>こんな場面に</h3><ul><li>施術や接客の時間管理</li><li>サロンやサービス業の終了時間管理</li><li>トレーニングやストレッチ</li><li>作業や休憩の時間管理</li><li>複数のタイミングで通知が必要な場面</li></ul></div>
+      <div class="detail-card"><h3>主な機能</h3><ul><li>1回の操作で最大3回まで通知</li><li>4つのプリセットを登録</li><li>「何分後」と時刻指定に対応</li><li>各通知ごとに時間を設定</li><li>端末内の音楽を通知音として使用可能</li><li>広告なし</li></ul></div>
+    </section>
+
+    <section class="cta"><h2>時間を気にする回数を減らす。</h2><p>開始時に1回押したら、あとはOneSetTimerにおまかせ。</p><a class="btn play" href="https://play.google.com/store/apps/details?id=jp.hamsoft.onesettimer" target="_blank" rel="noopener">Google PlayでOneSetTimerを見る</a></section>
+  </main>
+
+  <footer>© 2026 HaM Soft / HAM TAIL</footer>
+</body>
+</html>
