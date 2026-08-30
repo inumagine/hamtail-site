@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneSetTimer | One Tap, Up to 3 Alerts | HaM Soft</title>
+  <meta name="description" content="OneSetTimer is an Android timer app that can automatically give up to three alerts from a single start. Useful for massage, spa, salon, training, work and other sessions where you do not want to keep checking your phone.">
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      if (params.get('lang') === 'en') localStorage.setItem('onesettimer-lang', 'en');
+    })();
+  </script>
+  <style>
+    :root{--bg:#0b1222;--bg2:#0f172a;--card:#111c32;--primary:#2563eb;--text:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,.09);--green:#16a34a}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at 25% 0,rgba(56,189,248,.16),transparent 28%),linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);color:var(--text);line-height:1.75;min-height:100vh}
+    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:auto;padding:0 22px}
+    header{border-bottom:1px solid var(--line);background:rgba(11,18,34,.8);backdrop-filter:blur(14px);position:sticky;top:0;z-index:10}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#bfdbfe,#7dd3fc,#c4b5fd);-webkit-background-clip:text;color:transparent}.links{display:flex;gap:10px;flex-wrap:wrap}.links a{padding:9px 14px;color:#cbd5e1}.lang-link{border:1px solid rgba(96,165,250,.3);border-radius:9px;color:#bfdbfe!important}
+    .hero{padding:68px 0 46px;display:grid;grid-template-columns:1fr 220px;gap:38px;align-items:center}.eyebrow{display:inline-block;margin-bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(37,99,235,.15);border:1px solid rgba(96,165,250,.25);color:#bfdbfe;font-size:.86rem}.hero h1{font-size:clamp(2.4rem,5vw,4.6rem);line-height:1.08;margin-bottom:14px}.hero h1 span{color:#60a5fa}.lead{color:var(--muted);font-size:1.08rem;max-width:760px}.icon{width:220px;border-radius:36px;border:1px solid var(--line)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-block;padding:13px 21px;border-radius:11px;font-weight:800;background:linear-gradient(135deg,var(--primary),#0ea5e9);color:#fff}.btn.play{background:linear-gradient(135deg,#16a34a,#22c55e)}
+    section{padding:36px 0}.section-head{text-align:center;margin-bottom:22px}.section-head h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:8px}.section-head p{color:var(--muted)}
+    .feature{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature div{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(17,28,50,.78)}.feature strong{display:block;font-size:1.15rem;margin-bottom:6px}.feature p{color:var(--muted)}
+    .example{margin-top:22px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}.step{min-width:180px;text-align:center;padding:18px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line)}.step strong{display:block;font-size:1.35rem;color:#93c5fd}.arrow{font-size:1.8rem;color:#64748b}
+    .comic{margin:26px auto 0;max-width:940px;padding:10px;border-radius:20px;background:#fff;border:1px solid rgba(255,255,255,.18);box-shadow:0 28px 70px -36px #000}.comic img{display:block;width:100%;height:auto;border-radius:12px}
+    .caption{text-align:center;color:var(--muted);margin-top:12px}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.detail-card{padding:24px;border-radius:20px;background:rgba(17,28,50,.8);border:1px solid var(--line)}.detail-card h3{font-size:1.35rem;margin-bottom:12px}.detail-card ul{padding-left:1.3em;color:#dbeafe}.detail-card li{margin:6px 0}
+    .cta{text-align:center;padding:44px 24px;border-radius:24px;background:linear-gradient(135deg,rgba(37,99,235,.16),rgba(34,197,94,.09));border:1px solid rgba(96,165,250,.22);margin:30px 0 68px}.cta h2{font-size:2rem;margin-bottom:8px}.cta p{color:var(--muted);margin-bottom:20px}
+    footer{border-top:1px solid var(--line);padding:34px 0 46px;text-align:center;color:var(--muted);font-size:.9rem}
+    @media(max-width:760px){.hero{grid-template-columns:1fr}.icon{width:150px}.feature,.detail-grid{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.example{flex-direction:column}.step{width:88%}.nav{align-items:flex-start;flex-direction:column;padding:15px 0}}
+  </style>
+</head>
+<body>
+  <header><div class="container nav"><a class="brand" href="/">HAM TAIL / HaM Soft</a><nav class="links"><a href="/apps/">Apps</a><a href="/software/">Software</a><a href="/articles/">Articles</a><a class="lang-link" href="/apps/onesettimer/?lang=ja">日本語</a></nav></div></header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Android / OneSetTimer</span>
+        <h1>One tap.<br><span>Up to 3 alerts.</span></h1>
+        <p class="lead">OneSetTimer lets you start up to three preset alerts with one tap. Once the session begins, you can stay focused instead of repeatedly checking your phone or setting several alarms one by one.</p>
+        <div class="actions"><a class="btn play" href="https://play.google.com/store/apps/details?id=jp.hamsoft.onesettimer" target="_blank" rel="noopener">View on Google Play</a><a class="btn" href="#howto">See how it works</a></div>
+      </div>
+      <img class="icon" src="/assets/images/apps/onesettimer/icon-onesettimer.png" alt="OneSetTimer app icon">
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Multiple alerts from one start</h2><p>Reduce the hassle of calculating times and creating several alarms separately.</p></div>
+      <div class="feature">
+        <div><strong>Up to 3 alerts from one tap</strong><p>Press Start once. There is no need to operate another timer during the session.</p></div>
+        <div><strong>Save 4 presets</strong><p>Store the timing patterns you use often and start them quickly whenever you need them.</p></div>
+        <div><strong>Use local music as an alert sound</strong><p>Choose an easy-to-recognize sound or music file stored on your device.</p></div>
+      </div>
+      <div class="example">
+        <div class="step"><strong>45 min</strong>Treatment ends</div><div class="arrow">→</div>
+        <div class="step"><strong>55 min</strong>Shower / cleanup</div><div class="arrow">→</div>
+        <div class="step"><strong>60 min</strong>Session complete</div>
+      </div>
+    </section>
+
+    <section id="howto">
+      <div class="section-head"><h2>OneSetTimer at a glance</h2><p>A simple example of replacing separate “15 minutes before”, “5 minutes before”, and end-time alarms with one start.</p></div>
+      <div class="comic"><img src="/assets/images/apps/onesettimer/onesettimer-promo-en.png" alt="OneSetTimer one tap three alerts infographic"></div>
+      <p class="caption">Set it once. Stay focused. Let OneSetTimer handle the alerts.</p>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>See the full workflow</h2><p>Useful for massage and spa sessions, salon services, training, work sessions and other activities where you do not want to stop and check your phone.</p></div>
+      <div class="comic"><img src="/assets/images/apps/onesettimer/onesettimer-howto-en.png" alt="Detailed OneSetTimer usage guide in English"></div>
+    </section>
+
+    <section class="detail-grid">
+      <div class="detail-card"><h3>Great for</h3><ul><li>Massage and spa session timing</li><li>Salon and beauty services</li><li>Training and stretching</li><li>Work, break and focus sessions</li><li>Any task that needs alerts at several points</li></ul></div>
+      <div class="detail-card"><h3>Key features</h3><ul><li>Up to 3 alerts from one start</li><li>4 reusable presets</li><li>Countdown or clock-time scheduling</li><li>Set each alert time individually</li><li>Use music stored on your device as an alert sound</li><li>No ads</li></ul></div>
+    </section>
+
+    <section class="cta"><h2>Check your phone less. Focus more.</h2><p>Press Start once and let OneSetTimer handle the rest.</p><a class="btn play" href="https://play.google.com/store/apps/details?id=jp.hamsoft.onesettimer" target="_blank" rel="noopener">View OneSetTimer on Google Play</a></section>
+  </main>
+
+  <footer>© 2026 HaM Soft / HAM TAIL</footer>
+</body>
+</html>
