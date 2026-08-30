@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>アプリ | HAM TAIL</title>
-  <meta name="description" content="HAM TAIL / HaM Soft が公開予定のアプリ一覧です。">
+  <meta name="description" content="HAM TAIL / HaM Soft が公開しているアプリ一覧です。">
   <style>
     :root {
       --primary:#2563eb;
@@ -39,6 +39,7 @@
     .app-image{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#0b1222;margin-bottom:20px}
     .app-image img{width:100%;aspect-ratio:1/1;object-fit:cover}
     .status{display:inline-block;align-self:flex-start;margin-bottom:12px;padding:7px 11px;border-radius:999px;background:rgba(245,158,11,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;font-size:.82rem;font-weight:700}
+    .status.live{background:rgba(34,197,94,.12);border-color:rgba(74,222,128,.25);color:#bbf7d0}
     .app-card h2{font-size:1.45rem;margin-bottom:10px}
     .description{color:var(--muted);margin-bottom:18px;flex:1}
     .tags{display:flex;flex-wrap:wrap;gap:9px}
@@ -62,20 +63,20 @@
     <section class="hero">
       <span class="eyebrow">HaM Soft / Apps</span>
       <h1>アプリ</h1>
-      <p class="lead">HAM TAIL / HaM Soft が開発しているアプリです。現在公開準備を進めています。</p>
+      <p class="lead">HAM TAIL / HaM Soft が開発・公開しているアプリです。</p>
     </section>
 
     <main>
-      <h2 class="section-title">近日公開予定</h2>
+      <h2 class="section-title">アプリ一覧</h2>
 
       <div class="app-grid">
-        <article class="app-card">
+        <a class="app-card" href="/apps/onesettimer/">
           <div class="app-image"><img src="../assets/images/apps/onesettimer/icon-onesettimer.png" alt="OneSetTimer"></div>
-          <span class="status">近日公開予定</span>
+          <span class="status live">公開中</span>
           <h2>OneSetTimer</h2>
-          <p class="description">シンプルに使えるタイマーアプリ。公開準備中です。</p>
-          <div class="tags"><span class="tag">HaM Soft</span><span class="tag">準備中</span></div>
-        </article>
+          <p class="description">1回押すだけで最大3回通知。途中でスマホを触らず時間管理できるタイマーアプリ。</p>
+          <div class="tags"><span class="tag">HaM Soft</span><span class="tag">Android</span><span class="tag">3段階通知</span></div>
+        </a>
 
         <article class="app-card">
           <div class="app-image"><img src="../assets/images/apps/simplerecorder/icon-simplerecorder.png" alt="SimpleRecorder"></div>
@@ -94,7 +95,7 @@
         </article>
       </div>
 
-      <div class="notice">公開開始後、このページから各アプリの紹介・サポート情報へ進めるように更新します。</div>
+      <div class="notice">OneSetTimer は公開中です。カードから使い方・活用例・Google Playへのリンクを確認できます。</div>
     </main>
 
     <footer>© 2026 HaM Soft / HAM TAIL</footer>
